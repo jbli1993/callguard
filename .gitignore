@@ -1,0 +1,29 @@
+# Build output
+/build/
+/.tmp/
+/research/
+/release/
+*.apk
+*.idsig
+*.log
+
+# Signing material
+callguard.keystore
+callguard.keystore.*
+*.keystore
+*.jks
+*.p12
+
+# Prefix database is not distributed; users import their own copy
+/assets/phone.dat
+
+# Keep only the curated README screenshots; internal logs and test captures stay local
+/docs/*
+!/docs/screenshot-main.png
+!/docs/screenshot-main-zh.png
+!/docs/screenshot-db.png
+
+# OS/editor noise
+Thumbs.db
+Desktop.ini
+.DS_Store

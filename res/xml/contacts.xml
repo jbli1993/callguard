@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  第三方账户要出现在系统通讯录的「账户 / Customize view」里，必须声明这个结构。
+  注意：name / nickname / photo / group 这几种 mimetype 由 BaseAccountType 内置，
+  在这里再声明会抛 DefinitionException("mime type ... is already registered")，
+  导致该账户被静默丢弃（不会影响其他账户，只是它自己不出现）。
+  所以这里只声明额外的 phone_v2。
+-->
+<ContactsAccountType xmlns:android="http://schemas.android.com/apk/res/android">
+    <ContactsDataKind
+        android:mimeType="vnd.android.cursor.item/phone_v2"
+        android:icon="@mipmap/ic_launcher"
+        android:summaryColumn="data1"
+        android:detailColumn="data1" />
+</ContactsAccountType>

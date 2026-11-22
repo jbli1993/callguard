@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Call Guard</string>
+    <!-- 桌面标签：Launcher 一格只放得下一行约 7~8 个字符，这里用短名 -->
+    <string name="app_name_launcher">Guard</string>
+
+    <!-- header -->
+    <string name="header_subtitle">Offline prefix DB v%1$s · %2$s prefixes · No network</string>
+    <string name="db_not_loaded">Prefix database not installed (import below)</string>
+    <string name="db_missing_title">Prefix database not installed</string>
+    <string name="db_missing">This build does not include phone.dat. Download it from github.com/xluohome/phonedata (GPL-3.0), then import it here.</string>
+    <string name="header_subtitle_online">Offline prefix DB v%1$s · %2$s prefixes · Screening never goes online</string>
+
+    <!-- status card -->
+    <string name="status_title">Call screening</string>
+    <string name="status_sub_granted">Executed by system Telecom</string>
+    <string name="status_sub_denied">Not granted — rules will not take effect</string>
+    <string name="chip_granted">Granted</string>
+    <string name="chip_denied">Not granted</string>
+    <string name="btn_grant">Grant call screening</string>
+    <string name="toast_role_unsupported">This device has no call screening role</string>
+    <string name="toast_already_granted">Already granted</string>
+
+    <!-- main -->
+    <string name="enable_blocking">Enable blocking</string>
+    <string name="section_action">Blocking action</string>
+    <string name="action_reject_title">Reject</string>
+    <string name="action_reject_sub">Caller hears busy / unreachable</string>
+    <string name="action_silence_title">Silence</string>
+    <string name="action_silence_sub">No ring, no UI; caller hears normal ringing</string>
+
+    <!-- extra -->
+    <string name="section_intro">Getting started</string>
+    <string name="intro_step1">1. Grant call screening just below — otherwise nothing is blocked.</string>
+    <string name="intro_step2">2. Not using this project\'s dialer? Turn on the overlay — the system call banner takes the heads-up slot, so a normal notification waits in the shade.</string>
+    <string name="intro_step3">3. To see online marks (spam/scam), turn on online lookup below — so are the regions to block.</string>
+    <string name="intro_ok">Got it</string>
+    <string name="section_reminder">How labels are shown</string>
+    <string name="reminder_hint">If you use this project\'s dialer (it has its own call UI), leave the last two off — location and labels are drawn on its call screen. The system dialer needs one of them. In manual query mode the notification/overlay carries a “Look up” button.</string>
+    <string name="section_extra">Extra rules</string>
+    <string name="extra_virtual_title">Block virtual operators</string>
+    <string name="extra_virtual_sub">162 / 165 / 167 / 170 / 171 etc.</string>
+    <string name="extra_intl_title">Block international calls</string>
+    <string name="extra_intl_sub">Outside +86</string>
+    <string name="extra_unknown_title">Block unknown prefixes</string>
+    <string name="extra_unknown_sub">New segments, landlines, hidden numbers</string>
+    <string name="extra_contacts_title">Contacts whitelist</string>
+    <string name="extra_contacts_sub">Numbers in your contacts skip every rule — international, unknown prefix, region, 700.</string>
+    <string name="contacts_white_on">Granted · contacts are never blocked</string>
+    <string name="contacts_white_off">No contacts permission — the whitelist is inactive</string>
+    <string name="extra_relay_title">Silence 700 relay calls</string>
+    <string name="extra_relay_sub">15-digit privacy numbers: courier, food delivery, ride-hailing</string>
+    <string name="label_provider_title">Share labels with the dialer</string>
+    <string name="label_provider_sub">A compatible dialer can show location and spam labels on its call screen. Only the number you pass in is used — never your contacts or call history.</string>
+
+    <!-- region -->
+    <string name="section_region">Regions</string>
+    <string name="region_black_title">Blocked regions</string>
+    <string name="region_empty_black">No region selected — nothing will be blocked</string>
+    <string name="region_count">%1$d selected</string>
+    <string name="region_whole_province">whole province</string>
+    <string name="btn_pick_region">Select province / city</string>
+    <string name="btn_clear">Clear</string>
+    <string name="btn_close">Close</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_clear_province">Clear province</string>
+    <string name="dialog_pick_province">Select province</string>
+    <string name="dialog_whole_province">★ Whole province</string>
+    <string name="toast_db_loading">Prefix database is still loading</string>
+    <string name="toast_no_browser">No browser available</string>
+    <string name="toast_no_city">No city data for this province</string>
+    <string name="province_item_selected">● %1$s</string>
+    <string name="province_item">○ %1$s</string>
+
+    <!-- allowlist numbers -->
+    <string name="btn_add">Add</string>
+    <string name="toast_allow_bad">Enter at least 3 digits</string>
+    <string name="btn_save">Save</string>
+    <string name="toast_saved">Saved</string>
+
+    <!-- query -->
+    <string name="section_query">Lookup test</string>
+    <string name="hint_query">Enter a number</string>
+    <string name="btn_query">Look up</string>
+    <string name="query_region">Region: %1$s</string>
+    <string name="query_unknown_region">unknown (not a mobile prefix or not in DB)</string>
+    <string name="query_area">Area code: %1$s</string>
+    <string name="query_rule_block">Current rule: would block · %1$s</string>
+    <string name="query_rule_silence">Current rule: silence · %1$s</string>
+    <string name="query_rule_allow">Current rule: allow · %1$s</string>
+    <string name="none">-</string>
+
+    <!-- log -->
+    <string name="section_log">Recent blocks</string>
+    <string name="section_history">Call history</string>
+    <string name="history_empty">No calls recorded yet — history starts from this version.</string>
+    <string name="history_blocked">Blocked</string>
+    <string name="history_allowed">Allowed</string>
+    <string name="history_clear_title">Clear call history?</string>
+    <string name="history_clear_msg">Only this local list is cleared. Contacts and cached labels are untouched.</string>
+    <string name="btn_cached_labels">Cached labels…</string>
+    <string name="section_cached">Cached labels</string>
+    <string name="cached_empty">Nothing cached yet.</string>
+    <string name="detail_time">Time</string>
+    <string name="detail_region">Region</string>
+    <string name="detail_verdict">Verdict</string>
+    <string name="detail_reason">Reason</string>
+    <string name="detail_known">Known number</string>
+    <string name="detail_own">Your contact</string>
+    <string name="toast_contacts_pruned">Removed %1$d entries you had already saved yourself</string>
+    <string name="detail_cached">Cached label</string>
+    <string name="detail_query">Look up</string>
+    <string name="log_empty">No blocked calls yet</string>
+    <string name="btn_refresh">Refresh</string>
+    <string name="log_hidden_number">(hidden number)</string>
+
+    <!-- database -->
+    <string name="section_db">Prefix database</string>
+    <string name="db_desc">Import a phone.dat file; the header is validated first</string>
+    <string name="btn_import">Import new phone.dat</string>
+    <string name="db_loaded">Loaded v%1$s · %2$s records</string>
+    <string name="btn_get_db">Where to get phone.dat</string>
+    <string name="toast_import_ok">Database updated</string>
+    <string name="toast_import_bad">Invalid file (phone.dat expected)</string>
+    <string name="toast_import_fail">Read failed: %1$s</string>
+    <string name="toast_no_picker">No file picker available</string>
+
+    <!-- online lookup (optional) -->
+    <string name="section_online">Online lookup (optional)</string>
+    <string name="online_enable_title">Enable online lookup</string>
+    <string name="online_enable_sub">Only affects lookups — blocking decisions never go online</string>
+    <string name="online_key_hint">Tmini API key (optional)</string>
+    <string name="btn_save_key">Save</string>
+    <string name="toast_key_saved">Key saved</string>
+    <string name="online_cost_note">300 credits per lookup · about 1 CNY ≈ 3 lookups · result cached 30 days</string>
+    <string name="online_used">Lookups so far: %1$d</string>
+    <string name="online_query_btn">Look up label</string>
+    <string name="online_querying">Looking up…</string>
+    <string name="online_no_key">Add an API key first</string>
+    <string name="online_clean">Not marked</string>
+    <string name="online_marked">Marked</string>
+    <string name="online_verified">Verified business</string>
+    <string name="online_cached">(cached, no credits used)</string>
+    <string name="online_cached_free">(cached, no request sent)</string>
+    <string name="online_fail">Lookup failed: %1$s</string>
+    <string name="notify_toggle_title">Show labels on incoming calls</string>
+    <string name="notify_toggle_sub">A notification with the label. While ringing the system call banner owns the heads-up slot, so this usually waits in the shade.</string>
+    <string name="overlay_title">Overlay on incoming calls</string>
+    <string name="overlay_sub">Drawn over the system call screen — the only thing visible while it rings. Needs Display over other apps.</string>
+    <string name="overlay_need_permission">Grant Display over other apps first</string>
+    <string name="notify_channel_name">Caller labels</string>
+    <string name="notify_channel_desc">Shows the cached label of an incoming number</string>
+    <string name="toast_notify_denied">Notification permission denied — caller label turned off</string>
+    <string name="kit9_source">Free API · Sogou / Baidu / 360 (indicative only)</string>
+    <string name="online_free_note">No key needed — a free 3-source API (Sogou / Baidu / 360) is used. No cost, coarser than Tmini.</string>
+    <string name="online_free_title">Free API (kit9)</string>
+    <string name="online_free_sub">3 sources, no key, no cost</string>
+    <string name="online_paid_title">Paid API (Tmini)</string>
+    <string name="online_paid_sub">9 sources, needs your key, 300 credits per lookup</string>
+    <string name="online_both_off">Both sources are off — nothing will be queried.</string>
+    <string name="online_key_note">Stored locally — only used when the Paid API switch above is on.</string>
+    <string name="section_query_when">When to query</string>
+    <string name="query_when_manual_title">Only when I tap</string>
+    <string name="query_when_manual_sub">No request is sent for incoming calls</string>
+    <string name="query_when_auto_title">Always query automatically</string>
+    <string name="query_when_auto_sub">Free and paid both run in the background after the call is allowed. Paid lookups cost credits</string>
+    <string name="query_when_confirm_title">Ask before paid lookups</string>
+    <string name="query_when_confirm_sub">Free lookups still run automatically; only the paid API waits for your tap</string>
+    <string name="notify_ask_text">Not cached. This would use the paid API — tap Look up to spend credits.</string>
+    <string name="notify_ask_action">Look up</string>
+    <string name="notify_manual_text">Not cached. Tap Look up to fetch marks online.</string>
+    <string name="notify_manual_failed_text">Last lookup failed. Tap Look up to retry.</string>
+    <string name="notify_query_failed_short">Free lookup failed</string>
+    <string name="notify_blocked_title">Blocked %1$s</string>
+    <string name="notify_paid_recheck">Re-check with paid API</string>
+    <string name="notify_querying">Looking up…</string>
+    <string name="notify_query_failed">Lookup failed: %1$s</string>
+    <string name="online_disabled">Online lookup is off</string>
+    <string name="online_no_internet">This build has no INTERNET permission — use CallGuard-online.apk</string>
+
+    <!-- built-in directory (offline, free) -->
+    <string name="cat_courier">courier</string>
+    <string name="cat_food">food delivery</string>
+    <string name="cat_bank">bank</string>
+    <string name="cat_carrier">carrier</string>
+    <string name="cat_gov">public service</string>
+    <string name="cat_shop">online shopping</string>
+    <string name="directory_hit">Known number: %1$s</string>
+
+    <!-- account / contacts seeding -->
+    <string name="account_label">CallGuard</string>
+    <string name="section_contactsname">Name in system call UI</string>
+    <string name="contacts_desc">Writes the built-in numbers into a separate CallGuard account, so the system call screen shows the name. They stay hidden from the Contacts list automatically (keep Contacts to display set to Customize).</string>
+    <string name="btn_write_contacts">Write %1$d entries</string>
+    <string name="btn_clear_contacts">Remove</string>
+    <string name="contacts_status_none">Not written</string>
+    <string name="contacts_status_count">%1$d entries written</string>
+    <string name="contacts_hide_title">Hide from the Contacts list</string>
+    <string name="contacts_write_title">Write into system Contacts</string>    <string name="contacts_write_sub">Turn off to rely on the overlay only — no extra entries in Contacts or the dialer</string>
+    <string name="save_lookup_title">Save looked-up names</string>
+    <string name="save_lookup_sub">Writes the label into Contacts so the next call shows it on the system call screen</string>
+    <string name="contacts_status_overlay_only">Not written — names come from the overlay only</string>
+    <string name="contacts_hide_sub">Names still show on the call screen; the entries just stay out of the list</string>
+    <string name="contacts_status_hidden">%1$d entries written - hidden from Contacts</string>
+    <string name="contacts_status_visible">%1$d entries written - visible in Contacts</string>
+    <string name="contacts_clear_title">Remove these contacts?</string>
+    <string name="contacts_clear_msg">Removes only the entries written by CallGuard. Your own contacts are not touched.</string>    <string name="toast_contacts_written">Written: %1$d</string>
+    <string name="toast_contacts_cleared">Removed: %1$d</string>
+    <string name="toast_contacts_write_denied">Write-contacts permission denied</string>
+
+    <!-- carriers -->
+    <string name="carrier_1">Mobile</string>
+    <string name="carrier_2">Unicom</string>
+    <string name="carrier_3">Telecom</string>
+    <string name="carrier_4">Telecom MVNO</string>
+    <string name="carrier_5">Unicom MVNO</string>
+    <string name="carrier_6">Mobile MVNO</string>
+    <string name="carrier_7">Broadnet</string>
+    <string name="carrier_8">Broadnet MVNO</string>
+    <string name="carrier_unknown">Unknown</string>
+
+    <!-- verdict reasons -->
+    <string name="reason_disabled">disabled</string>
+    <string name="reason_intl_blocked">international call</string>
+    <string name="reason_intl_allowed">international allowed</string>
+    <string name="reason_hidden">hidden number</string>
+    <string name="reason_empty">empty number</string>
+    <string name="reason_short">service number</string>
+    <string name="reason_contacts">contact</string>
+    <string name="reason_unknown_blocked">unknown prefix</string>
+    <string name="reason_unknown_allowed">unknown prefix allowed</string>
+    <string name="reason_region_hit">region %1$s</string>
+    <string name="reason_virtual">virtual operator</string>
+    <string name="reason_relay">privacy relay number</string>
+    <string name="reason_allowed">allowed</string>
+
+    <!-- about -->
+    <string name="section_about">About</string>
+    <string name="about_version">Version</string>
+    <string name="about_build">Build</string>
+    <string name="about_build_online">Online (has INTERNET)</string>
+    <string name="about_build_offline">Offline (no INTERNET)</string>
+    <string name="about_package">Package</string>
+    <string name="about_account">Contacts account</string>
+    <string name="about_db">Prefix DB</string>
+    <string name="about_note">Screening runs entirely on this device. The online build sends a number to a caller-ID service only after you enable online lookup; the free endpoint needs no key.</string>
+    <string name="emergency_title">Emergency call exemption</string>
+    <string name="emergency_sub">After calling 110/119/120, every incoming call is allowed for 2 hours, so callbacks from police or ambulance are never blocked. Location and labels are still shown.</string>
+    <string name="emergency_active">Active · %1$s left</string>
+    <string name="emergency_inactive">Not active</string>
+    <string name="emergency_clear">Clear now</string>
+    <string name="emergency_cleared">Exemption cleared</string>
+    <string name="emergency_need_permission">Needs call-log permission to detect emergency calls</string>
+    <string name="emergency_grant">Grant</string>
+    <string name="reason_emergency">Emergency exemption</string>
+</resources>

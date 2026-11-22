@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.callguard.app"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <!-- 刻意不申请 INTERNET：本应用完全离线，号码只在本机与内置号段库比对。
+         READ_CONTACTS 只在用户勾选"通讯录免拦"后才会申请。 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <!-- 只用来判断"最近有没有打过紧急电话"（紧急呼叫豁免），不读通话内容 -->
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- 可选：来电时用悬浮窗显示标记/询问（默认关，需用户在系统设置里授权） -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <!-- 需要判断调用 LabelProvider 的 uid 是不是专用拨号器（付费查询只让它触发）。
+         Android 11+ 的包可见性会过滤 getPackagesForUid，所以显式声明。 -->
+    <queries>
+        <package android:name="com.callguard.dialer" />
+    </queries>
+    <application
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:allowBackup="false"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name_launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".ScreenService"
+            android:exported="true"
+            android:permission="android.permission.BIND_SCREENING_SERVICE">
+            <intent-filter>
+                <action android:name="android.telecom.CallScreeningService" />
+            </intent-filter>
+        </service>
+
+        <!-- 自测入口默认关闭；仅 build.ps1 -SelfTest 的调试包导出，供 adb broadcast 使用 -->
+        <receiver
+            android:name=".SelfTestReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.callguard.app.SELFTEST" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+            对外只读接口：给第三方拨号器（fork 的 OpenDialer）取号码标签。
+            内容协议见 LabelProvider 的注释（纯文本 v1 + key=value，可独立演进）。
+            不设权限：它只会返回由号码本身推导的信息（号段归属地 / 内置表 / 在线标记缓存），
+            不碰通讯录与通话记录，调用方本来就知道那个号码。
+            默认开，可在应用里关掉；关掉后 provider 一律返回空。
+        -->
+        <provider
+            android:name=".LabelProvider"
+            android:authorities="com.callguard.app.provider"
+            android:exported="true" />
+
+        <!-- 来电场景的联网查询入口（通知按钮 / 自动查），只接受应用内部广播 -->
+        <receiver
+            android:name=".LookupReceiver"
+            android:exported="false" />
+
+        <!-- 独立账户：让通讯录能把 CallGuard 条目单独列出来 / 单独隐藏 -->
+        <service
+            android:name=".AuthenticatorService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+            <meta-data
+                android:name="android.provider.CONTACTS_STRUCTURE"
+                android:resource="@xml/contacts" />
+        </service>
+
+        <service
+            android:name=".SyncService"
+            android:exported="true"
+            android:process=":sync">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapter" />
+            <meta-data
+                android:name="android.provider.CONTACTS_STRUCTURE"
+                android:resource="@xml/contacts" />
+        </service>
+    </application>
+</manifest>

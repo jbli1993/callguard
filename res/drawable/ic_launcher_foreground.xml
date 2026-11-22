@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  自适应图标前景层：盾牌描边 + 听筒。
+
+  几何都按 108dp 网格、留出 66dp 安全区：
+    盾牌   x 32..76（宽 44），y 26..82（高 56），四角最远点距中心 ≈ 28.4dp < 33dp
+    听筒   归一化中心 (54, 52)，即盾牌的视觉重心（比几何中心略高，盾牌上宽下尖）
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 盾牌外框 -->
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="5.6"
+        android:strokeLineJoin="round"
+        android:pathData="M54,26 L76,35 L76,59 C76,70 68,77 54,82 C40,77 32,70 32,59 L32,35 Z" />
+
+    <!-- 听筒：Material "call" 字形，24 单位盒，缩放 1.5 后居中到 (54,52) -->
+    <group
+        android:translateX="35.8"
+        android:translateY="34"
+        android:scaleX="1.5"
+        android:scaleY="1.5">
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:strokeColor="#FFFFFFFF"
+            android:strokeWidth="0.8"
+            android:strokeLineJoin="round"
+            android:pathData="M6.62,10.79c1.44,2.83 3.76,5.14 6.59,6.59l2.2,-2.2c0.27,-0.27 0.67,-0.36 1.02,-0.24 1.12,0.37 2.33,0.57 3.57,0.57 0.55,0 1,0.45 1,1L21,20c0,0.55 -0.45,1 -1,1 -9.39,0 -17,-7.61 -17,-17 0,-0.55 0.45,-1 1,-1h3.5c0.55,0 1,0.45 1,1 0,1.25 0.2,2.45 0.57,3.57 0.11,0.35 0.03,0.74 -0.25,1.02l-2.2,2.2z" />
+    </group>
+</vector>
