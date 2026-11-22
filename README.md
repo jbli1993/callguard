@@ -87,7 +87,7 @@ carrier  1 移动  2 联通  3 电信  4 电信虚拟  5 联通虚拟  6 移动�
 不需要 Gradle / Android Studio。依赖 JDK 17+、Android SDK（build-tools + platform 36）：
 
 ```powershell
-git clone <仓库地址>
+git clone https://github.com/jbli1993/callguard.git
 cd callguard
 
 $env:JAVA_HOME = 'C:\path\to\jdk'
