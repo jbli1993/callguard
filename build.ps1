@@ -4,7 +4,7 @@
 #   .\build.ps1 -Online            online build (INTERNET permission; lookup stays off by default)
 #   .\build.ps1 -NoDb              do not package assets/phone.dat
 #   .\build.ps1 -SelfTest          export the adb self-test receiver (debug builds only)
-#   .\build.ps1 -VersionName 1.0.0 -VersionCode 1
+#   .\build.ps1 -VersionName 0.1.0 -VersionCode 1
 #
 # Requirements:
 #   - JDK 17+ (JAVA_HOME, Android Studio's JBR, or javac on PATH)
